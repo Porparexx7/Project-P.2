@@ -220,115 +220,190 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadQuestion() {
 
-        if (!questionText ||
-            !answersContainer) {
-            return;
-        }
+    const question =
+        questions[currentQuestion];
 
+    if (!question) {
+        console.error(
+            "ไม่พบคำถามลำดับ:",
+            currentQuestion
+        );
+        return;
+    }
 
-        const question =
-            questions[currentQuestion];
+    selectedAnswer = null;
 
+    /* =========================
+       QUESTION NUMBER
+    ========================= */
 
-        selectedAnswer = null;
-
+    if (questionNumber) {
 
         questionNumber.textContent =
             `คำถามที่ ${currentQuestion + 1} / ${questions.length}`;
 
+    }
+
+
+    /* =========================
+       QUESTION TEXT
+    ========================= */
+
+    if (questionText) {
 
         questionText.textContent =
             question.question;
 
-
-        answersContainer.innerHTML =
-            "";
+    }
 
 
-        question.answers.forEach(
-            (answer, index) => {
+    /* =========================
+       CLEAR OLD ANSWERS
+    ========================= */
 
-                const button =
-                    document.createElement("button");
+    if (answersContainer) {
 
-                button.type =
-                    "button";
+        answersContainer.innerHTML = "";
 
-                button.className =
-                    "answer-btn";
-
-                button.textContent =
-                    answer;
+    }
 
 
-                button.addEventListener(
-                    "click",
-                    () => {
+    /* =========================
+       CREATE ANSWERS
+    ========================= */
 
-                        document
-                            .querySelectorAll(
-                                ".answer-btn"
-                            )
-                            .forEach(btn => {
+    question.answers.forEach(
+        (answer, index) => {
 
-                                btn.classList.remove(
-                                    "selected"
-                                );
-
-                            });
+            const button =
+                document.createElement("button");
 
 
-                        button.classList.add(
-                            "selected"
-                        );
+            button.type =
+                "button";
 
 
-                        selectedAnswer =
-                            index;
+            button.className =
+                "answer-btn";
 
 
-                        if (nextBtn) {
-                            nextBtn.disabled =
-                                false;
-                        }
+            button.textContent =
+                answer;
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    /*
+                     * ลบ selected จากทุกปุ่ม
+                     */
+
+                    document
+                        .querySelectorAll(
+                            "#answers .answer-btn"
+                        )
+                        .forEach(btn => {
+
+                            btn.classList.remove(
+                                "selected"
+                            );
+
+                        });
+
+
+                    /*
+                     * เลือกปุ่มนี้
+                     */
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+
+                    selectedAnswer =
+                        index;
+
+
+                    /*
+                     * เปิดปุ่มถัดไป
+                     */
+
+                    if (nextBtn) {
+
+                        nextBtn.disabled =
+                            false;
+
+
+                        nextBtn.textContent =
+                            currentQuestion ===
+                            questions.length - 1
+
+                                ? "ไปต่อกันนะคะ"
+
+                                : "คำถามต่อไป";
 
                     }
-                );
 
+                }
+            );
+
+
+            if (answersContainer) {
 
                 answersContainer.appendChild(
                     button
                 );
 
             }
-        );
-
-
-        if (nextBtn) {
-            nextBtn.disabled = true;
-
-            if (
-                currentQuestion ===
-                questions.length - 1
-            ) {
-
-                nextBtn.textContent =
-                    "ไปต่อกันนะคะ";
-
-            } else {
-
-                nextBtn.textContent =
-                    "คำถามต่อไป";
-
-            }
 
         }
+    );
 
 
-        updateProgress();
+    /* =========================
+       RESET NEXT BUTTON
+    ========================= */
+
+    if (nextBtn) {
+
+        nextBtn.disabled =
+            true;
+
+
+        nextBtn.textContent =
+            "เลือกคำตอบก่อนนะคะ";
 
     }
 
+
+    /* =========================
+       PROGRESS
+    ========================= */
+
+    const percent =
+        (
+            (currentQuestion + 1) /
+            questions.length
+        ) * 100;
+
+
+    if (progressFill) {
+
+        progressFill.style.width =
+            `${percent}%`;
+
+    }
+
+
+    if (progressPercent) {
+
+        progressPercent.textContent =
+            `${Math.round(percent)}%`;
+
+    }
+
+}
 
     /* =========================================================
        PROGRESS
