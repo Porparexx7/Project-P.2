@@ -68,51 +68,38 @@
          QUIZ
     ========================== -->
 
-    <section id="quizScreen"
-             class="screen">
+    <section id="quizScreen" class="screen quiz-screen">
 
-        <div class="quiz-container">
+    <div class="card quiz-card">
 
-            <div class="progress-info">
-
-                <span id="questionNumber">
-                    คำถามที่ 1 / 5
-                </span>
-
-                <span id="progressPercent">
-                    20%
-                </span>
-
-            </div>
-
-            <div class="progress-bar">
-                <div id="progressFill"></div>
-            </div>
-
-
-            <div class="quiz-card">
-
-                <div class="question-mark">
-                    ✧
-                </div>
-
-                <h2 id="questionText"></h2>
-
-                <div id="answerContainer"
-                     class="answers">
-                </div>
-
-                <button id="nextBtn"
-                        class="next-btn"
-                        disabled>
-                    เลือกคำตอบก่อนนะคะ
-                </button>
-
-            </div>
-
+        <div class="progress">
+            <span id="questionNumber">คำถามที่ 1 / 5</span>
+            <span id="progressPercent">20%</span>
         </div>
 
-    </section>
+        <div class="progress-bar">
+            <div id="progressFill"></div>
+        </div>
+
+        <div class="quiz-icon">✦</div>
+
+        <h2 id="questionText">
+            กำลังโหลดคำถาม...
+        </h2>
+
+        <div id="answers" class="answers"></div>
+
+        <button
+            id="nextBtn"
+            class="main-btn"
+            disabled
+        >
+            เลือกคำตอบก่อนนะคะ
+        </button>
+
+    </div>
+
+</section>
 
 
     <!-- =========================
