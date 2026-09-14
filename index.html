@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>เรื่องหนึ่งที่เค้าอยากบอกเธอ</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================
+         START
+    ========================== -->
+
+    <section id="startScreen"
+             class="screen active">
+
+        <div class="stars"></div>
+
+        <div class="start-card">
+
+            <div class="mini-lotus">
+                <span>✦</span>
+                <span>✧</span>
+                <span>♡</span>
+                <span>✧</span>
+                <span>✦</span>
+            </div>
+
+            <p class="eyebrow">
+                มีเรื่องหนึ่งที่เค้าอยากบอก
+            </p>
+
+            <h1>
+                ถึงเธอ
+            </h1>
+
+            <p class="start-description">
+                ก่อนที่เค้าจะถามคำถามหนึ่งกับเธอ<br>
+                ขอให้เธอลองตอบคำถามของเค้าก่อนนะคะ
+            </p>
+
+            <button id="startBtn"
+                    class="main-btn">
+                มาเริ่มตอบคำถามดีฟ่าาา
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ
+    ========================== -->
+
+    <section id="quizScreen"
+             class="screen">
+
+        <div class="quiz-container">
+
+            <div class="progress-info">
+
+                <span id="questionNumber">
+                    คำถามที่ 1 / 5
+                </span>
+
+                <span id="progressPercent">
+                    20%
+                </span>
+
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+
+
+            <div class="quiz-card">
+
+                <div class="question-mark">
+                    ✧
+                </div>
+
+                <h2 id="questionText"></h2>
+
+                <div id="answerContainer"
+                     class="answers">
+                </div>
+
+                <button id="nextBtn"
+                        class="next-btn"
+                        disabled>
+                    เลือกคำตอบก่อนนะคะ
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LOTUS
+    ========================== -->
+
+    <section id="lotusScreen"
+             class="screen lotus-screen">
+
+        <div class="lotus-title">
+
+            <p>
+                คำตอบของเธอพาเค้ามาถึงตรงนี้
+            </p>
+
+            <h2>
+                ดูสิคะ...
+            </h2>
+
+        </div>
+
+
+        <div class="lotus-stage">
+
+            <!-- ดอกบัวของเค้า -->
+            <div id="lotusKeaoCharacter"
+                 class="lotus-character keao">
+
+                <div id="lotusKeao"
+                     class="lotus-particles">
+                </div>
+
+            </div>
+
+
+            <!-- ซ่อนไว้ ไม่ใช้ดอกที่สองแล้ว -->
+            <div id="lotusHerCharacter"
+                 class="lotus-character her">
+
+                <div id="lotusHer"
+                     class="lotus-particles">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="lotusMessage"
+             class="lotus-message">
+            ดอกบัวดอกนี้มีบางอย่างอยากบอกเธอค่ะ
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INNER FEELINGS
+    ========================== -->
+
+    <section id="heartScreen"
+             class="screen heart-screen">
+
+        <div class="heart-page">
+
+            <div class="heart-symbol">
+                ♡
+            </div>
+
+            <p class="heart-eyebrow">
+                จากความรู้สึกของเค้า
+            </p>
+
+            <h2>
+                มีบางอย่างที่เค้า<br>
+                อยากบอกเธอจริงๆค่ะ
+            </h2>
+
+
+            <div id="heartText"
+                 class="heart-text">
+
+            </div>
+
+
+            <div id="touchHint"
+                 class="touch-hint">
+
+                อ่านจนจบแล้วนะคะ<br>
+                แตะตรงไหนก็ได้เพื่อไปดูคำถามสุดท้าย
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROPOSAL
+    ========================== -->
+
+    <section id="proposalScreen"
+             class="screen proposal-screen">
+
+        <div class="proposal-content">
+
+            <p class="proposal-line line-1">
+                จริงๆแล้วว
+            </p>
+
+            <p class="proposal-line line-2">
+                เค้ามีคำถามสุดท้ายที่อยากถามเธอค่ะ
+            </p>
+
+            <p class="proposal-line line-3">
+                เค้าชอบเธอนะคะ
+            </p>
+
+            <h2 class="proposal-question">
+                เป็นแฟนกับเค้าได้ไหมคะ?
+            </h2>
+
+
+            <div class="proposal-buttons">
+
+                <button id="yesBtn"
+                        class="yes-btn">
+                    ได้ค่ะ
+                </button>
+
+                <button id="thinkBtn"
+                        class="think-btn">
+                    ขอคิดดูก่อนนะคะ
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SUCCESS
+    ========================== -->
+
+    <section id="successScreen"
+             class="screen success-screen">
+
+        <div id="successParticles"
+             class="success-particles">
+        </div>
+
+        <div class="success-content">
+
+            <div class="success-lotus">
+
+                <div class="success-petal p1"></div>
+                <div class="success-petal p2"></div>
+                <div class="success-petal p3"></div>
+                <div class="success-petal p4"></div>
+                <div class="success-petal p5"></div>
+
+                <div class="success-center"></div>
+
+            </div>
+
+
+            <p class="success-small">
+                ขอบคุณนะคะ
+            </p>
+
+            <h2 id="successTitle">
+                เธอตอบตกลงแล้ว
+            </h2>
+
+            <p id="successText"
+               class="success-text">
+                ต่อจากนี้
+            </p>
+
+            <p class="success-text">
+                เค้าขออยู่ข้างๆ เธอไปเรื่อยๆเลยนะคะ
+            </p>
+
+            <div class="success-heart">
+                ♡
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         THINK POPUP
+    ========================== -->
+
+    <div id="thinkPopup"
+         class="popup">
+
+        <div class="popup-card">
+
+            <div class="popup-symbol">
+                ♡
+            </div>
+
+            <h3>
+                คิดดูก่อนได้นะคะ
+            </h3>
+
+            <p>
+                เค้าไม่ได้อยากเร่งคำตอบของเธอค่ะ
+                <br><br>
+                เค้าแค่อยากให้เธอรู้ว่า
+                <br>
+                ความรู้สึกของเค้ามันจริงนะคะ
+            </p>
+
+            <button id="closePopup">
+                กลับไปค่ะ
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
